@@ -13,12 +13,12 @@
         <table>
             <tr>
                 <th>ID</th>
-                <th>Titulo</th>
+                <th>Titulo película</th>
                 <th>Duracion</th>
                 <th>Fecha de estreno</th>
             </tr>
         <?php
-            $sql= "SELECT * FROM peliculas";
+            $sql= "SELECT * FROM peliculas";//estamos cogiendo la base de datos peliculas.
             $resultado = $conexion -> query($sql);
 
             if($resultado-> num_rows >0){

@@ -6,7 +6,7 @@
         $sql= "DELETE FROM peliculas WHERE id='$id'";
 
         if ($conexion-> query($sql)== TRUE){
-            echo "Peleicula borrada";
+            echo "Pelicula borrada";
         }else{
             echo "Error al borrar la pelicula";
         }
