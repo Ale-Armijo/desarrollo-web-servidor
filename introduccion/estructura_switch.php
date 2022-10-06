@@ -13,6 +13,7 @@
         default:
             echo "<p>$numero es igual a 3.</p>";
             //break; se puede quitar xq despues de este echo no hay nada.
+            
     }
 
     $nota= 6;
