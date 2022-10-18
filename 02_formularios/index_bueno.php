@@ -128,11 +128,13 @@
     </div>
 
     <div>
-        <h2 id="ej4">Ejercicio 4</h2><!--Con id="ej4" hacemos q al enviar el formulario nos quedemos en el eje3, y no se nos vaya arriba del todo.-->
+        <h2 id="ej4">Ejercicio 4</h2>
+        <!--Con id="ej4" hacemos q al enviar el formulario nos quedemos en el eje3, y no se nos vaya arriba del todo.-->
         <p>Crear un formulario que reciba una frase y un número del 1 al 6. Habrá que mostrar la frase
             en un encabezado d.
             Si introducimos "5" y "Hola mundo" se mostrará un encabezado Hola mundo</p>
-        <form action="#ej4" method="POST"><!--Con action= "#ej4" hacemos que al enviar en form se nos quede en ese mismo eje, y no se suba arriba.-->
+        <form action="#ej4" method="POST">
+            <!--Con action= "#ej4" hacemos que al enviar en form se nos quede en ese mismo eje, y no se suba arriba.-->
             <label>Frase</label><br><br>
             <input type="text" name="frase" placeholder="Escriba una frase:"><br><br>
             <label>Encabezado</label><br><br>
@@ -145,9 +147,9 @@
         <?php    // Etiqueta PHP de respuesta.
             if ($_SERVER ["REQUEST_METHOD"]== "POST"){
                 if ($_POST["f"] == "ej4"){               
-                $frase=$_POST["frase"];
-                $e=$_POST["encabezado"];
-                echo "<h$e>$frase</h$e>";
+                    $frase=$_POST["frase"];
+                    $e=$_POST["encabezado"];
+                    echo "<h$e>$frase</h$e>";
                 }
             }
         ?>
@@ -173,15 +175,15 @@
         <?php
         if($_SERVER["REQUEST_METHOD"]=="POST"){
             if($_POST["f"]== "ej5"){
-            require 'funciones/potencia.php';
-            $base=$_POST["base"];
-            $exponente=$_POST["exponente"];
-            $resultado=potencia($base, $exponente);
-                if($resultado==1){
-                echo "<p>El numero no puede ser negativo</p>";
-           } else{
-                 echo"<p>El resultado es $resultado</p>";
-           }
+                require 'funciones/potencia.php';//importamos la funcion potencia.
+                $base=$_POST["base"];
+                $exponente=$_POST["exponente"];
+                $resultado=potencia($base, $exponente);
+                if($resultado==-1){//Error.
+                    echo "<p>Error. El numero no puede ser negativo</p>";
+                } else{
+                    echo"<p>El resultado es $resultado</p>";
+                }
             }
         }
         ?>
@@ -203,7 +205,7 @@
         <?php
         if ($_SERVER["REQUEST_METHOD"]== "POST"){
             if ($_POST["f"]=="ej6"){
-                require 'funciones/factorial.php';
+                require 'funciones/factorial.php';//importamos la funcion factorial.
                 $numero = $_POST["numero"];
                 $resultado = factorial($numero);//se va acumulando el bucle.Debe estar fuera del bucle.
                 echo"<p>El resultado es $resultado</p>";
