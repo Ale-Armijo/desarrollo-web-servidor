@@ -15,7 +15,7 @@
         Si introducimos "5" y "Hola mundo" se mostrará un encabezado Hola mundo
     </h2>
     <div>
-        <form action="ejercicio4_respuesta.php" method="GET">
+        <form action="ejercicios/ejercicio4_respuesta.php" method="GET">
             <label>Frase</label><br><br>
             <input type="text" name="frase" placeholder="Escriba una frase:"><br><br>
             <label>Encabezado</label><br><br>
@@ -23,9 +23,12 @@
             <input type="submit" value="Enviar">
             <br><br>
         </form>
+        <?php
+    require 'footer.php';
+?>
     </div>
 </body>
 
 </html>
-<a href="index.php">Volver al inicio</a>
+<a href="../index.php">Volver al inicio</a>
 <!-- Comentario -->

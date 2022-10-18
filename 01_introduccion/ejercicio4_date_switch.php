@@ -57,10 +57,22 @@ echo "Hoy es $dia $ndia de $mes de $anho";
         case "Tuesday": 
             $dia = "Martes";
             break;
+        case "Wednsday";
+            $dia="Miércoles";
+            break;
         case "Thursday":
             $dia = "Jueves";
             break;
     }
+    
+    echo "Hoy es $dia $ndia de $mes de $anho";
+    $dia= match($d){
+        "Monday"=> "Lunes",//Si $d es Monday a $dia se le asigna Lunes.
+        "Tuesday" => "Martes",// Si $d es Tuesday a $dia se le asigna Martes.
+        "Wednsday" => "Miércoles",
+        "Thursday" => "Jueves",
+        default=> "Otro día"
+    };
 
     $ndia = date("j");
 
@@ -80,7 +92,6 @@ echo "Hoy es $dia $ndia de $mes de $anho";
 
     $anho = date("Y");
 
-    echo "Hoy es $dia $ndia de $mes de $anho";
-    
+
 ?>
------------------------------------------------------------------------------------
+

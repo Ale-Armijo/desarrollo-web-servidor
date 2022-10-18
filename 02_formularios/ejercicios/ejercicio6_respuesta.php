@@ -1,7 +1,7 @@
 <h1>Ejercicio 6</h1>
 
 <?php
-    $n = $_POST["numero"];
+    $n = $_GET["numero"];
     $resultado = 1;//se va acumulando el bucle.Debe estar fuera del bucle.
     
     if($n>=1){

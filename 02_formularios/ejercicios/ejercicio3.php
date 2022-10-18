@@ -19,7 +19,7 @@
         - Convertir el nombre introducido a minúsculas
         salvo la primera letra, que será mayúscula</h2>
     <div>
-    <form action="ejercicio3_respuesta.php" method="get">
+    <form action="ejercicios/ejercicio3_respuesta.php" method="get">
         <label>Nombre</label><br><br>
         <input type="text" name="nombre" placeholder="Escriba su nombre:"><br><br>
         <label>Edad</label><br><br>
@@ -27,9 +27,12 @@
         <input type="submit" value="Enviar formulario">
         <br><br>
     </form>
+    <?php
+    require 'footer.php';
+?>
     </div>
 </body>
 
 </html>
 <!-- Comentario -->
-<a href="index.php">Volver al inicio</a>
+<a href="../index.php">Volver al inicio</a>
