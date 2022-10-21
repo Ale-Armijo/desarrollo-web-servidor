@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href= "styles.css"/>
     <title>Numeros primos</title>
 </head>
 <h2>Crea un formulario que reciba dos números “a” y “b”.
@@ -40,7 +41,7 @@
                 $i=2;// $i vuelve al valor inicial.
             }
             else{
-                 $i++;
+                $i++;
             }
                               
         }
