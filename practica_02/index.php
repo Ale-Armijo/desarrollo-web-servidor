@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuarios</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <title>Practica 02</title>
 </head>
 
 <body>
@@ -84,17 +85,26 @@
     
     ?>
     <form action="" method="POST">
+        <p>DNI:
+            <input type="text" name="dni">
+        </p>
         <p>Nombre:
             <input type="text" name="nombre">
             <span class="error">
                 *<?php if (isset($err_nombre)) echo $error_nombre?>
             </span>
         </p>
-        <p>Apellidos:
-            <input type="text" name="apellidos">
+        <p>Apellido1:
+            <input type="text" name="apellido1">
         </p>
-        <p>DNI:
-            <input type="text" name="dni">
+        <p>Apellido2:
+            <input type="text" name="apellido2">
+        </p>
+        <p>Edad:
+            <input type=" " name="edad"> <!--Qué type??-->
+        </p>
+        <p>Email:
+            <input type=
         </p>
         <p>
             <input type="submit" name="Enviar">
