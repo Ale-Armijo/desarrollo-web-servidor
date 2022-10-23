@@ -1,0 +1,10 @@
+#tabla1 td{background-color:red;border:solid black 1px}
+#tabla2 td{background-color:blue;border:solid black 1px}
+#tabla3 td{background-color:red;border:solid black 1px}
+#tabla4 td{background-color:red;border:solid black 1px}
+#tabla5 td{background-color:red;border:solid black 1px}
+#tabla6 td{background-color:green;border:solid black 1px}
+#tabla7 td{background-color:red;border:solid black 1px}
+#tabla8 td{background-color:red;border:solid black 1px}
+
+#tabla1{position:absolute; right:50%; bottom:20%;}
