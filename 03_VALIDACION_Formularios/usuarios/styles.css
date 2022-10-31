@@ -1,0 +1,51 @@
+input[type=text],/*Personaliza los imputs de tipo texto*/
+select {
+  width: 100%;  /*Altura*/
+  padding: 12px 20px;  /*Margen relleno*/
+  margin: 8px 0;
+  display: inline-block;
+  border: 3px solid rgb(1, 35, 13); /*Tipo de borde.*/
+  border-radius: 14px; /*Para redondear el borde.*/
+  box-sizing: border-box;
+  background-color: rgb(243, 239, 239);
+  font-size: 15px;
+}
+
+input[type=submit] {  /*Personalizamos el boton de Submit.*/
+  width: 100%;
+  background-color: #FF8787;
+  color: rgb(236, 245, 240);
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: 3px solid rgb(204, 11, 49);
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover { /* Para que cuando pasemos x encima se sombree un poco.*/
+  background-color: #E26868;
+}
+
+div { /*Por si queremos usar los div.*/
+  border-radius: 5px;
+  background-color: #D8D9CF;
+  padding: 20px;
+}
+
+table{
+    font-family: Arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th{
+  border: 1px solid #D8D9CF;
+  text-align: left;
+  padding: 8px;
+}
+tr:nth-child(even){
+  background-attachment:  #f6a03d;
+}
+span.error{
+  color: rgb(253,53, 53)
+};
