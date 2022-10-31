@@ -31,3 +31,18 @@ div { /*Por si queremos usar los div.*/
   background-color: #D8D9CF;
   padding: 20px;
 }
+
+table{
+    font-family: Arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th{
+  border: 1px solid #D8D9CF;
+  text-align: left;
+  padding: 8px;
+}
+tr:nth-child(even){
+  background-attachment:  #f6a03d;
+}

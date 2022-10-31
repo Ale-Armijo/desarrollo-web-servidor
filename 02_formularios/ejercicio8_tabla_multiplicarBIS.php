@@ -11,7 +11,7 @@
     </head>
 
     <body>
-        <form action="#ej8" method="POST">
+        <form action="ejercicio8_tabla_multiplicarBIS.php" method="POST">
             <label>Numero</label><br>
             <input type="text" name="numero"><br><br>
             <input type="hidden" name="f" value="ej8">

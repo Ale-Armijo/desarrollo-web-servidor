@@ -19,7 +19,7 @@
     </h1>
     <form action="ejercicio8.php" method="post">
         <label>Elige una tabla:</label><br>
-        <select name="tabla">
+        <select name="tabla"> <!--Esto sería un desplegable-->
             <option value="1">Tabla del 1</option>
             <option value="2">Tabla del 2</option>
             <option value="3">Tabla del 3</option>
@@ -45,7 +45,7 @@
         echo "<td>$tabla x $i = " . $tabla * $i ."</td>";
         echo "</tr>";
     }
-    echo "</table>";
+        echo "</table>";
     }
 ?>
 </body>

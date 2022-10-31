@@ -173,19 +173,19 @@
             <h2 id="ej5">Respuesta al ejercicio 5:</h2>
         </form>
         <?php
-        if($_SERVER["REQUEST_METHOD"]=="POST"){
-            if($_POST["f"]== "ej5"){
-                require 'funciones/potencia.php';//importamos la funcion potencia.
-                $base=$_POST["base"];
-                $exponente=$_POST["exponente"];
-                $resultado=potencia($base, $exponente);
-                if($resultado==-1){//Error.
-                    echo "<p>Error. El numero no puede ser negativo</p>";
-                } else{
-                    echo"<p>El resultado es $resultado</p>";
+            if($_SERVER["REQUEST_METHOD"]=="POST"){
+                if($_POST["f"]== "ej5"){
+                    require 'funciones/potencia.php';//importamos la funcion potencia.
+                    $base=$_POST["base"];
+                    $exponente=$_POST["exponente"];
+                    $resultado=potencia($base, $exponente);
+                    if($resultado==-1){//Error, no puede ser negativo.
+                        echo "<p>Error. El numero no puede ser negativo</p>";
+                    } else{
+                        echo"<p>El resultado es $resultado</p>";
+                    }
                 }
             }
-        }
         ?>
     </div>
 
@@ -199,21 +199,20 @@
             <input type="text" name="numero" placeholder="Escriba un numero:"><br><br>
             <input type="hidden" name="f" value="ej6">
             <input type="submit" value="Enviar">
-            <h2 id="ej6">Respusta al ejercicio 6:</h2>
+            <h2 id="ej6">Respuesta al ejercicio 6:</h2>
             <br><br>
         </form>
         <?php
-        if ($_SERVER["REQUEST_METHOD"]== "POST"){
-            if ($_POST["f"]=="ej6"){
-                require 'funciones/factorial.php';//importamos la funcion factorial.
-                $numero = $_POST["numero"];
-                $resultado = factorial($numero);//se va acumulando el bucle.Debe estar fuera del bucle.
-                echo"<p>El resultado es $resultado</p>";
-            }
+            if ($_SERVER["REQUEST_METHOD"]== "POST"){
+                if ($_POST["f"]=="ej6"){
+                    require 'funciones/factorial.php';//importamos la funcion factorial.
+                    $numero = $_POST["numero"];
+                    $resultado = factorial($numero);//se va acumulando el bucle.Debe estar fuera del bucle.
+                    echo"<p>El resultado es $resultado</p>";
+                }
 
-        }
-        
-    ?>
+            }
+        ?>
     </div>
 
 
@@ -253,11 +252,12 @@
 
     <div>
         <h2 id="ej8">Ejercicio 8 - Tabla de multiplicar</h2>
-        <p>Formulario de la tabla de multiplicar</p>
+        <p>Crear un formulario que reciba un nº y cree su tabla de multiplicar</p>
 
         <form action="#ej8" method="post">
             <label>Elige una tabla:</label><br>
             <select name="tabla">
+                <!--Esto sería un desplegable-->
                 <option value="1">Tabla del 1</option>
                 <option value="2">Tabla del 2</option>
                 <option value="3">Tabla del 3</option>
@@ -269,27 +269,25 @@
                 <option value="9">Tabla del 9</option>
                 <option value="10">Tabla del 10</option>
             </select>
-            <input type="hidden" name="f" value="ej7">
-            <input type="submit" value="Mostrar la tabla">
-            <h2 id="ej7">Respuesta al ejercicio 8 Tablas:</h2>
+            <input type="hidden" name="f" value="ej8">
+            <input type="submit" value="Mostrar la tabla:">
+            <h2 id="ej8">Respuesta al ejercicio 8 Tablas:</h2>
         </form>
-        <?php
-        if($_SERVER["REQUEST_METHOD"]=="POST"){
-            if($_POST["f"]=="ej8"){
-            $tabla = (int)$_POST["tabla"];
-
-            echo "<table>";
-            echo "<tr><th>Tabla del $tabla</th></tr>";
-            for ($i = 1; $i <= 10; $i++) {
-                echo "<tr>";
-                echo "<td>$tabla x $i = " . $tabla * $i ."</td>";
-                echo "</tr>";
+        <?php //Respuesta al formulario.
+            if($_SERVER["REQUEST_METHOD"]=="POST"){
+                if($_POST["f"]=="ej8"){
+                    $tabla = (int)$_POST["tabla"];
+                    echo "<table>";//se abre la tabla
+                    echo "<tr><th>Tabla del $tabla</th></tr>"; //th crea el encabezado de la tabla.TABLE HEAD
+                    for ($i = 1; $i <= 10; $i++) {
+                        echo "<tr>";// tr crea una fila
+                        echo "<td>$tabla x $i = " . $tabla * $i ."</td>";//td es una columna.
+                        echo "</tr>";
+                    }
+                    echo "</table>";//se cierra la tabla.
+                }
             }
-            echo "</table>";
-            }
-        }
         ?>
-
     </div>
 
 

@@ -78,7 +78,7 @@
     </div>
 
     <div>
-            <h2><a href="ejercicios/tablaDeMultiplicar.php">Tabla de multiplicar</a>
+            <h2><a href="ejercicios/tablaDeMultiplicarBIS.php">Tabla de multiplicar</a>
             </h2>
             <p>Formulario de la tabla de multiplicar</p>
     </div>
