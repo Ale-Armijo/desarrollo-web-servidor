@@ -100,53 +100,76 @@
                 }$nombre= $temp_nombre;
             }
 
-            //Validacion del apellido:
-            if (empty($temp_apellidos)){
-                $err_apellidos="El apellido es obligatorio.";
+            //VALIDACION DEL APELLIDO1:
+            if (empty($temp_apellido1)){
+                $err_apellido1="El primer apellido es obligatorio.";
             }else{
                 $pattern= "/^[a-zA-Z áéíóúÁÉÍÓÚñÑ]+$/";
-                if (!preg_match($pattern,$temp_apellidos)){//si la variable nombre sigue el patron de la variable pattern
-                    $err_apellidos= "El apellido solo puede contener letras.";
+                if (!preg_match($pattern,$temp_apellido1)){//si la variable nombre sigue el patron de la variable pattern
+                    $err_apellido1= "El apellido solo puede contener letras.";
                 }else{
-                    if(strlen($temp_apellidos)>30){
-                        $err_apellidos="El apellido no puede tener mas de 30 caracteres.";
+                    if(strlen($temp_apellido1)>30){
+                        $err_apellido1="El apellido no puede tener mas de 30 caracteres.";
                     }else{
-                        //Exito
-                        
+                        //Entra por aquí cuando todo correcto.
                     }
-                } $apellidos= $temp_apellidos;
+                } $apellido1= $temp_apellido1;
             }
 
-            /* Validadacion de la edad. Si se es menor de 18 años se deberá mostrar 
+            //VALIDACION DEL APELLIDO2:
+            if (empty($temp_apellido2)){
+                $err_apellido2="El primer apellido es obligatorio.";
+            }else{
+                $pattern= "/^[a-zA-Z áéíóúÁÉÍÓÚñÑ]+$/";
+                if (!preg_match($pattern,$temp_apellido2)){//si la variable nombre sigue el patron de la variable pattern
+                    $err_apellido2= "El apellido solo puede contener letras.";
+                }else{
+                    if(strlen($temp_apellido2)>30){
+                        $err_apellido2="El apellido no puede tener mas de 30 caracteres.";
+                    }else{
+                        //Entra por aquí cuando todo es correcto. 
+                    }
+                } $apellido2= $temp_apellido2;
+            }
+
+
+
+            /* VALIDACION DE LA EDAD: Si se es menor de 18 años se deberá mostrar 
             un aviso de que se es menor de edad. Además, la edad deberá ser siempre 
             un número, y nunca inferior a 0 o superior a 120 */
             if(empty($_POST["edad"])){
                 $err_edad= "La edad es obligatoria";
             }else{
-                $pattern="/^[0-9]{2}$/";
+                $pattern="/^[0-9]{1,}$/";
                 if(!preg_match($pattern,$temp_edad)){
-                    $err_edad= "La edad no es correcta.";
+                    $err_edad= "Por favor, escriba la edad en números.";
                 }else{
-                    if ($temp_edad < 0){
-                        echo"<p>La edad no puede ser negativa</p>";
-                    } else if($temp_edad < 18 && $temp_edad >= 0) {
-                        echo "<p>$nombre es menor edad.</p>";
-                    } else if ($temp_edad >= 18 && $temp_edad <= 65) {
-                        echo "<p>$nombre es adulto.</p>";
-                    } else if ($temp_edad > 65 && $temp_edad < 120) {
-                        echo "<p>$nombre se ha jubilado.</p>";
-                    }else if($temp_edad > 120){
-                        echo "<p>La edad no puede ser superior a 120 años.</p>";
-                    } else {
-                        echo "<p>La edad no es válida.</p>";
+                    if ($temp_edad <0 || $temp_edad >120){
+                        $err_edad="<p>La edad no es correcta.</p>";
+                    }else if ($temp_edad <120 && $temp_edad >0){
+                        echo "<p>La edad es correcta.</p>";
                     }
                 }
                 $edad=$temp_edad;
             }
+             /*VALIDACION DEL EMAIL. El correo electrónico deberá estar en formato correcto.
+              No se permitirán además correos electrónicos que contengan palabras malsonantes
+               (basta con que vetéis 3 palabras malsonantes). Utilizar la función str_contains.*/
+
+             if(empty($temp_email)){
+                $err_email= "Lo sentimos, el email es obligatorio";
+            }else{//FILTER devuelve false cuando no sigue el filtro que hemos pasado.
+                //Devuelve el propio valor si cumple con el filtro.
+                $temp_email= filter_var($temp_email, FILTER_VALIDATE_EMAIL);
+                if(!$temp_email){//Aquí no pasa el filtro.
+                    $err_email= "El email no es válido.";
+                }else {//Aquí sí pasa el filtro.
+                }
+            }$email= $temp_email;
             
             //Si existe todo, imprime los datos.
-            if (isset($dni) || isset($nombre)|| isset($apellido1) 
-            || isset($apellido2) || isset($edad) || isset($email) ){
+            if (isset($dni) && isset($nombre) && isset($apellido1) 
+            && isset($apellido2) && isset($edad) && isset($email)){
             echo "<p>El DNI de $nombre es: $dni</p>";
             echo "<p>Su nombre es: $nombre</p>";
             echo "<p>Su primer apellido es: $apellido1</p>";
@@ -156,39 +179,14 @@
             }    
         }//Cierre del IF primero.
 
-        
-        /*Validar el precio:
-        if(empty($temp_precio)){
-            $err_precio= "El precio es obligatorio";
-        }else{
-            $temp_precio= filter_var($temp_precio, FILTER_VALIDATE_FLOAT);
-        }
-        */
-
+    
 
         /*Validar email El correo electrónico deberá estar en formato correcto.
          No se permitirán además correos electrónicos que contengan palabras 
          malsonantes (basta con que vetéis 3 palabras malsonantes). 
          Utilizar la función str_contains. */
 
-        /* Validar: 
-        - email (con filter-var)
-        - fecha de nacimiento (sin input date) (dia, mes, año)
-        (2 numeros, 2 numeros, 4 numeros) 03/12/2022
-        -El día solo puede empezar por 0, 1, 2 , 3.
-        -El mes por 0 o 1.
-        -El año por 20 o 19.
         
-
-        Validacion fecha:Si se es menor de 18 años se deberá mostrar un aviso de que se es menor de edad. Además, la edad deberá ser siempre un número, y nunca inferior a 0 o superior a 120
-
-        if (empty($_POST["anyo"])){
-            $err_anyo= "El año es obligatorio.";
-        }else{
-            $pattern="";
-        }if(!preg_match){
-
-        }*/
     
         function depurar($dato){
             $dato=trim($dato);//elimina espacios en blanco.
